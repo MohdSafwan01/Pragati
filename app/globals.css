@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+/* ============================================================
+   PRAGATI Design System
+   Predictive Infrastructure Intelligence & Decision-Support
+   ============================================================ */
+
+:root {
+  /* --- Primary Palette: Sky Blue / Cyan --- */
+  --color-primary: #0ea5e9;
+  --color-primary-dark: #0284c7;
+  --color-primary-light: #e0f2fe;
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+
+  /* --- Secondary: Cyan --- */
+  --color-secondary: #06b6d4;
+  --color-secondary-dark: #0891b2;
+  --color-secondary-light: #cffafe;
+
+  /* --- Royal Blue: Headers, Nav --- */
+  --color-royal: #1e3a5f;
+  --color-royal-light: #2d5a8e;
+  --color-royal-dark: #152a45;
+
+  /* --- Accent: Golden / Orange --- */
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+  --color-accent-light: #fef3c7;
+
+  /* --- Semantic --- */
+  --color-success: #10b981;
+  --color-success-light: #ecfdf5;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fffbeb;
+  --color-danger: #ef4444;
+  --color-danger-dark: #dc2626;
+  --color-danger-light: #fef2f2;
+
+  /* --- Neutrals --- */
+  --color-neutral-50: #fafafa;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+
+  /* --- Background / Foreground --- */
+  --background: #ffffff;
+  --foreground: #171717;
+  --background-subtle: #f8fafc;
+  --background-muted: #f1f5f9;
+  --border-default: #e2e8f0;
+  --border-subtle: #f1f5f9;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+
+  /* --- Border Radius --- */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+  --radius-full: 9999px;
+
+  /* --- Transitions --- */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Tailwind v4 Theme Extension --- */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-background-subtle: var(--background-subtle);
+  --color-background-muted: var(--background-muted);
+  --color-border-default: var(--border-default);
+  --color-border-subtle: var(--border-subtle);
+  --font-sans: var(--font-plus-jakarta);
+}
+
+/* --- Base Styles --- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Fixes fixed header overlap on anchor links */
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-300);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-neutral-400);
+}
+
+/* --- Focus Styles --- */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* --- Selection --- */
+::selection {
+  background-color: var(--color-primary-200);
+  color: var(--color-primary-700);
+}
