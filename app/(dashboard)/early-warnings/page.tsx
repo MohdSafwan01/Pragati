@@ -116,24 +116,24 @@ export default function EarlyWarningsPage() {
 
   return (
     <div className="space-y-6 pb-16">
-      {/* Header */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+      {/* Header Banner */}
+      <div className="surface-level-3 rounded-2xl p-6 relative overflow-hidden border border-slate-200/90 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="p-1 rounded bg-orange-100 text-orange-700">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="p-1.5 rounded-lg bg-royal text-amber-400 shadow-xs">
                 <BellRing className="w-5 h-5" />
               </span>
               <h1 className="text-2xl sm:text-3xl font-bold text-royal tracking-tight">
                 Early Warning Telemetry &amp; Anomaly Persistence
               </h1>
             </div>
-            <p className="text-sm text-neutral-600">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
               Surveillance warning signals, anomaly duration, and lead-time tracking before material milestone slippages occur.
             </p>
           </div>
 
-          <span className="text-xs font-mono text-slate-500 bg-slate-100 px-3 py-1 rounded-full border shrink-0">
+          <span className="text-[11px] font-mono font-bold text-slate-600 bg-slate-100/90 px-3 py-1.5 rounded-lg border border-slate-200 shrink-0">
             JUNE 2026 CYCLE
           </span>
         </div>
@@ -141,28 +141,28 @@ export default function EarlyWarningsPage() {
 
       {/* KPI Strip */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-        <Card className="p-4">
-          <span className="text-xs text-slate-500 font-semibold block uppercase">Active Warnings</span>
+        <Card className="p-4 border-slate-200">
+          <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Active Warnings</span>
           <span className="text-2xl font-bold text-royal mt-1 block">{activeCount}</span>
           <span className="text-[11px] text-slate-400">Total active signals</span>
         </Card>
-        <Card className="p-4 bg-red-50/40 border-red-200">
-          <span className="text-xs text-red-700 font-semibold block uppercase">Critical Warnings</span>
+        <Card className="p-4 bg-red-50/30 border-red-200/90">
+          <span className="text-[10px] text-red-700 font-bold block uppercase tracking-wider">Critical Warnings</span>
           <span className="text-2xl font-bold text-red-700 mt-1 block">{criticalCount}</span>
           <span className="text-[11px] text-red-600">Urgent lead-time flags</span>
         </Card>
-        <Card className="p-4 bg-amber-50/40 border-amber-200">
-          <span className="text-xs text-amber-700 font-semibold block uppercase">High Warnings</span>
+        <Card className="p-4 bg-amber-50/30 border-amber-200/90">
+          <span className="text-[10px] text-amber-700 font-bold block uppercase tracking-wider">High Warnings</span>
           <span className="text-2xl font-bold text-amber-800 mt-1 block">{highCount}</span>
           <span className="text-[11px] text-amber-700">Elevated risk alerts</span>
         </Card>
-        <Card className="p-4 bg-orange-50/40 border-orange-200">
-          <span className="text-xs text-orange-700 font-semibold block uppercase">New This Cycle</span>
+        <Card className="p-4 bg-orange-50/30 border-orange-200/90">
+          <span className="text-[10px] text-orange-700 font-bold block uppercase tracking-wider">New This Cycle</span>
           <span className="text-2xl font-bold text-orange-800 mt-1 block">{newThisCycle}</span>
           <span className="text-[11px] text-orange-700">&le; 3 months persistence</span>
         </Card>
-        <Card className="p-4">
-          <span className="text-xs text-slate-500 font-semibold block uppercase">Longest Persistent</span>
+        <Card className="p-4 border-slate-200">
+          <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Longest Persistent</span>
           <span className="text-2xl font-bold text-slate-900 mt-1 block">{longestPersistence} Mos</span>
           <span className="text-[11px] text-slate-400">Continuous surveillance</span>
         </Card>

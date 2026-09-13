@@ -105,24 +105,24 @@ export default function AnalyticsPage() {
 
   return (
     <div className="space-y-6 pb-16">
-      {/* Header */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+      {/* Header Banner */}
+      <div className="surface-level-3 rounded-2xl p-6 relative overflow-hidden border border-slate-200/90 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="p-1 rounded bg-royal text-white">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="p-1.5 rounded-lg bg-royal text-sky-400 shadow-xs">
                 <PieChart className="w-5 h-5" />
               </span>
               <h1 className="text-2xl sm:text-3xl font-bold text-royal tracking-tight">
                 Portfolio Analytics &amp; Cross-Cutting Intelligence
               </h1>
             </div>
-            <p className="text-sm text-neutral-600">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
               Macro portfolio trends, cost/schedule variances, sector distributions, and priority queue analytics.
             </p>
           </div>
 
-          <span className="text-xs font-mono text-slate-500 bg-slate-100 px-3 py-1 rounded-full border shrink-0">
+          <span className="text-[11px] font-mono font-bold text-slate-600 bg-slate-100/90 px-3 py-1.5 rounded-lg border border-slate-200 shrink-0">
             JUNE 2026 ANALYTICS
           </span>
         </div>

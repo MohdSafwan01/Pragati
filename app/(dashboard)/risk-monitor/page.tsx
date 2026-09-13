@@ -133,24 +133,24 @@ export default function RiskMonitorPage() {
 
   return (
     <div className="space-y-6 pb-16">
-      {/* Header */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+      {/* Header Banner */}
+      <div className="surface-level-3 rounded-2xl p-6 relative overflow-hidden border border-slate-200/90 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="p-1 rounded bg-royal text-white">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="p-1.5 rounded-lg bg-royal text-sky-400 shadow-xs">
                 <Activity className="w-5 h-5" />
               </span>
               <h1 className="text-2xl sm:text-3xl font-bold text-royal tracking-tight">
                 Portfolio Risk Monitor
               </h1>
             </div>
-            <p className="text-sm text-neutral-600">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
               Deep analytical surveillance of risk evolution, category exposure, increasing risk velocity, and evidence confidence.
             </p>
           </div>
 
-          <span className="text-xs font-mono text-slate-500 bg-slate-100 px-3 py-1 rounded-full border shrink-0">
+          <span className="text-[11px] font-mono font-bold text-slate-600 bg-slate-100/90 px-3 py-1.5 rounded-lg border border-slate-200 shrink-0">
             JUNE 2026 CYCLE
           </span>
         </div>
@@ -158,38 +158,38 @@ export default function RiskMonitorPage() {
 
       {/* Top Metrics Strip */}
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-        <Card className="p-4">
-          <span className="text-xs text-slate-500 font-semibold block uppercase">Portfolio Risk</span>
+        <Card className="p-4 border-slate-200">
+          <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Portfolio Risk</span>
           <span className="text-2xl font-bold text-royal mt-1 block">58.5 / 100</span>
           <span className="text-[11px] text-slate-400">Mean portfolio score</span>
         </Card>
-        <Card className="p-4 bg-red-50/40 border-red-200">
-          <span className="text-xs text-red-700 font-semibold block uppercase">Critical Projects</span>
+        <Card className="p-4 bg-red-50/30 border-red-200/90">
+          <span className="text-[10px] text-red-700 font-bold block uppercase tracking-wider">Critical Projects</span>
           <span className="text-2xl font-bold text-red-700 mt-1 block">{summary.criticalRiskCount}</span>
           <span className="text-[11px] text-red-600">Score &ge; 76</span>
         </Card>
-        <Card className="p-4 bg-amber-50/40 border-amber-200">
-          <span className="text-xs text-amber-700 font-semibold block uppercase">High-Risk Projects</span>
+        <Card className="p-4 bg-amber-50/30 border-amber-200/90">
+          <span className="text-[10px] text-amber-700 font-bold block uppercase tracking-wider">High-Risk Projects</span>
           <span className="text-2xl font-bold text-amber-800 mt-1 block">{summary.highRiskCount}</span>
           <span className="text-[11px] text-amber-700">Score 56–75</span>
         </Card>
-        <Card className="p-4 bg-orange-50/40 border-orange-200">
-          <span className="text-xs text-orange-700 font-semibold block uppercase">Increasing Risk</span>
+        <Card className="p-4 bg-orange-50/30 border-orange-200/90">
+          <span className="text-[10px] text-orange-700 font-bold block uppercase tracking-wider">Increasing Risk</span>
           <span className="text-2xl font-bold text-orange-800 mt-1 block">2 Projects</span>
           <span className="text-[11px] text-orange-700">Zojila &amp; MAHSR</span>
         </Card>
-        <Card className="p-4">
-          <span className="text-xs text-slate-500 font-semibold block uppercase">Avg Confidence</span>
+        <Card className="p-4 border-slate-200">
+          <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Avg Confidence</span>
           <span className="text-2xl font-bold text-emerald-700 mt-1 block">{avgConfidence}%</span>
           <span className="text-[11px] text-slate-400">Evidence sufficiency</span>
         </Card>
       </div>
 
       {/* Semantic Guidance Alert */}
-      <Card className="border-sky-200 bg-sky-50/40">
+      <Card className="border-sky-200/80 bg-sky-50/50">
         <CardContent className="p-4 flex items-start gap-3 text-xs text-sky-950">
           <Info className="w-4 h-4 text-sky-600 shrink-0 mt-0.5" />
-          <div>
+          <div className="leading-relaxed">
             <strong className="font-bold">Decision-Support Risk Semantics:</strong> Risk score (0–100) is a decision-support ranking signal, not a guaranteed probability of failure. Confidence measures evidence sufficiency separately from risk magnitude. Predictive signals reflect model attribution metrics, not causal claims.
           </div>
         </CardContent>

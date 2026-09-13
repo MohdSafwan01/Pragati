@@ -3,7 +3,7 @@ import { Target } from 'lucide-react';
 
 export default function MissionSection() {
   return (
-    <section className="relative py-32 overflow-hidden bg-slate-900">
+    <section id="about" className="relative py-32 overflow-hidden bg-slate-900 scroll-mt-24">
       {/* Background Image / Gradient Placeholder */}
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/90 to-transparent z-10"></div>
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-25 mix-blend-overlay"></div>

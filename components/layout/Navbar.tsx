@@ -2,20 +2,53 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
+import PragatiLogo from '@/components/ui/PragatiLogo';
 
 const NAV_LINKS = [
   { name: 'Why PRAGATI', href: '#why-pragati' },
   { name: 'How It Works', href: '#how-it-works' },
+  { name: 'Live Map', href: '#live-map-section' },
   { name: 'Projects', href: '/projects' },
-  { name: 'Impact', href: '#impact' },
+  { name: 'Impact', href: '#impact-section' },
   { name: 'About', href: '#about' },
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  const getNavHref = (href: string) => {
+    if (href.startsWith('#') && pathname !== '/') {
+      return `/${href}`;
+    }
+    return href;
+  };
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    isMobile: boolean = false
+  ) => {
+    if (isMobile) {
+      setMobileMenuOpen(false);
+    }
+
+    if (href.startsWith('#')) {
+      if (pathname === '/') {
+        e.preventDefault();
+        const targetId = href.replace(/^#/, '');
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+          window.history.pushState(null, '', href);
+        }
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,17 +72,8 @@ export default function Navbar() {
       >
         {/* Brand */}
         <div className="flex lg:flex-1">
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md group"
-          >
-            <span className="text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-none group-hover:text-sky-700 transition-colors">
-              प्रगति
-            </span>
-            <div className="h-6 w-px bg-slate-300 hidden sm:block" />
-            <span className="hidden sm:block text-xs font-bold text-slate-500 uppercase tracking-[0.2em] leading-tight">
-              PRAGATI
-            </span>
+          <Link href="/" className="flex items-center gap-2.5 outline-none focus-visible:ring-2 focus-visible:ring-sky-500 rounded-md group">
+            <PragatiLogo variant="compact" />
           </Link>
         </div>
 
@@ -58,7 +82,8 @@ export default function Navbar() {
           {NAV_LINKS.map((item) => (
             <Link
               key={item.name}
-              href={item.href}
+              href={getNavHref(item.href)}
+              onClick={(e) => handleNavClick(e, item.href)}
               className="px-4 py-2 text-sm font-medium text-slate-600 hover:text-sky-600 rounded-lg hover:bg-sky-50/60 transition-all outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
             >
               {item.name}
@@ -109,13 +134,8 @@ export default function Navbar() {
               className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm lg:hidden"
             >
               <div className="flex items-center justify-between">
-                <Link
-                  href="/"
-                  className="flex items-center gap-2"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  <span className="text-2xl font-black text-slate-900">प्रगति</span>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">PRAGATI</span>
+                <Link href="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
+                  <PragatiLogo variant="compact" />
                 </Link>
                 <button
                   type="button"
@@ -132,9 +152,9 @@ export default function Navbar() {
                     {NAV_LINKS.map((item) => (
                       <Link
                         key={item.name}
-                        href={item.href}
+                        href={getNavHref(item.href)}
                         className="block rounded-lg px-4 py-3 text-base font-semibold text-slate-900 hover:bg-sky-50 transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={(e) => handleNavClick(e, item.href, true)}
                       >
                         {item.name}
                       </Link>

@@ -197,48 +197,51 @@ export default function ProjectsPage() {
 
   return (
     <div className="space-y-6 pb-16">
-      {/* Header */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      {/* Executive Control Panel Header */}
+      <div className="surface-level-3 rounded-2xl p-6 relative overflow-hidden border border-slate-200/90 shadow-sm">
+        <div className="absolute -top-12 -right-12 w-48 h-48 bg-sky-500/5 rounded-full blur-2xl pointer-events-none" />
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 relative z-10">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="p-1 rounded bg-sky-100 text-sky-800">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="p-1.5 rounded-lg bg-royal text-sky-400 shadow-xs">
                 <FolderGit2 className="w-5 h-5" />
               </span>
               <h1 className="text-2xl sm:text-3xl font-bold text-royal tracking-tight">
                 Projects Portfolio Explorer
               </h1>
             </div>
-            <p className="text-sm text-neutral-600">
-              Central sector infrastructure monitoring records, physical progress velocity, and predictive risk attribution.
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
+              Central sector infrastructure monitoring records, physical progress velocity, and predictive risk attribution console.
             </p>
           </div>
 
-          <span className="text-xs font-mono text-slate-500 bg-slate-100 px-3 py-1 rounded-full border shrink-0">
-            DEMO DATA · JUNE 2026 CYCLE
-          </span>
+          <div className="flex items-center gap-2 shrink-0">
+            <span className="text-[11px] font-mono font-bold text-slate-600 bg-slate-100/90 px-3 py-1.5 rounded-lg border border-slate-200 shadow-2xs">
+              DEMO DATA · JUNE 2026 CYCLE
+            </span>
+          </div>
         </div>
       </div>
 
       {/* KPI Strip */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <Card className="p-4">
-          <span className="text-xs text-slate-500 font-semibold block uppercase">Total Monitored</span>
+        <Card className="p-4 border-slate-200">
+          <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Total Monitored</span>
           <span className="text-2xl font-bold text-royal mt-1 block">{totalProjects}</span>
           <span className="text-[11px] text-slate-400">All central sector projects</span>
         </Card>
-        <Card className="p-4 bg-red-50/40 border-red-200">
-          <span className="text-xs text-red-700 font-semibold block uppercase">Critical Risk</span>
+        <Card className="p-4 bg-red-50/30 border-red-200/90">
+          <span className="text-[10px] text-red-700 font-bold block uppercase tracking-wider">Critical Risk</span>
           <span className="text-2xl font-bold text-red-700 mt-1 block">{criticalCount}</span>
           <span className="text-[11px] text-red-600">Immediate action needed</span>
         </Card>
-        <Card className="p-4 bg-amber-50/40 border-amber-200">
-          <span className="text-xs text-amber-700 font-semibold block uppercase">High Risk</span>
+        <Card className="p-4 bg-amber-50/30 border-amber-200/90">
+          <span className="text-[10px] text-amber-700 font-bold block uppercase tracking-wider">High Risk</span>
           <span className="text-2xl font-bold text-amber-800 mt-1 block">{highCount}</span>
           <span className="text-[11px] text-amber-700">Elevated delay/cost risk</span>
         </Card>
-        <Card className="p-4">
-          <span className="text-xs text-slate-500 font-semibold block uppercase">Avg Progress</span>
+        <Card className="p-4 border-slate-200">
+          <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Avg Progress</span>
           <span className="text-2xl font-bold text-emerald-700 mt-1 block">{avgProgress}%</span>
           <span className="text-[11px] text-slate-400">Portfolio physical velocity</span>
         </Card>

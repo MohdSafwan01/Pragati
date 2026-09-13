@@ -88,23 +88,24 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       </div>
 
       {/* Project Identity Header Card */}
-      <Card className="border-l-4" style={{ borderLeftColor: tierConfig.color }}>
-        <CardContent className="p-6">
+      <Card className="border-l-4 shadow-sm relative overflow-hidden" style={{ borderLeftColor: tierConfig.color }}>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50/50 rounded-full blur-3xl pointer-events-none" />
+        <CardContent className="p-6 relative z-10">
           <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
             <div className="space-y-2 flex-1">
               <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wider bg-slate-100 text-slate-700">
+                <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded bg-slate-100/90 text-slate-700 border border-slate-200 uppercase tracking-wider">
                   {project.sector}
                 </span>
-                <span className="text-xs font-semibold px-2.5 py-0.5 rounded uppercase tracking-wider bg-slate-100 text-slate-700">
+                <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded bg-slate-100/90 text-slate-700 border border-slate-200 uppercase tracking-wider">
                   {project.state}
                 </span>
-                <span className="text-xs font-semibold px-2.5 py-0.5 rounded capitalize bg-emerald-50 text-emerald-800 border border-emerald-200">
+                <span className="text-[11px] font-bold px-2.5 py-0.5 rounded capitalize bg-emerald-50 text-emerald-800 border border-emerald-200">
                   Status: {project.status}
                 </span>
                 {priorityConfig && (
                   <span
-                    className="text-xs font-bold px-2.5 py-0.5 rounded border"
+                    className="text-[11px] font-bold px-2.5 py-0.5 rounded border"
                     style={{
                       backgroundColor: priorityConfig.bgColor,
                       color: priorityConfig.color,
@@ -119,11 +120,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 </span>
               </div>
 
-              <h1 className="text-2xl lg:text-3xl font-bold text-royal tracking-tight">
+              <h1 className="text-2xl lg:text-3xl font-bold text-royal tracking-tight leading-tight">
                 {project.name}
               </h1>
 
-              <p className="text-sm text-neutral-600 flex flex-wrap items-center gap-x-4 gap-y-1">
+              <p className="text-xs sm:text-sm text-slate-600 flex flex-wrap items-center gap-x-4 gap-y-1">
                 <span className="flex items-center gap-1.5">
                   <Building2 className="w-4 h-4 text-slate-400" />
                   {project.ministry}

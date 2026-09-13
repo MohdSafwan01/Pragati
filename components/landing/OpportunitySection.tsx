@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef } from 'react';
 import { Search, TrendingUp, AlertTriangle, Zap } from 'lucide-react';
-import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { gsap } from 'gsap';
 
@@ -49,7 +48,7 @@ export default function OpportunitySection() {
   }, []);
 
   return (
-    <section id="why-pragati" ref={sectionRef} className="py-24 bg-white border-t border-slate-100 relative overflow-hidden">
+    <section id="why-pragati" ref={sectionRef} className="py-24 bg-white border-t border-slate-100 relative overflow-hidden scroll-mt-24">
       {/* Decorative subtle background */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-sky-50 rounded-full blur-[100px] opacity-60 -translate-y-1/2 translate-x-1/3 pointer-events-none" />
 

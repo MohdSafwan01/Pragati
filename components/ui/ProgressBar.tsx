@@ -22,17 +22,18 @@ export function ProgressBar({
   
   return (
     <div className={cn("w-full", className)} {...props}>
-      <div className={cn("w-full bg-slate-100 rounded-full overflow-hidden", heightClass)}>
+      <div className={cn("w-full bg-slate-100/90 rounded-full overflow-hidden shadow-inner border border-slate-200/50 p-0.5", heightClass)}>
         <div 
-          className={cn("h-full rounded-full transition-all duration-500 ease-in-out", colorClass)}
+          className={cn("h-full rounded-full transition-all duration-500 ease-out shadow-xs", colorClass)}
           style={{ width: `${percentage}%` }}
         />
       </div>
       {showLabel && (
         <div className="mt-1 flex justify-end">
-          <span className="text-xs font-medium text-slate-600">{Math.round(percentage)}%</span>
+          <span className="text-xs font-bold text-royal">{Math.round(percentage)}%</span>
         </div>
       )}
     </div>
   );
 }
+

@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 /* ============================================================
-   PRAGATI Design System
+   PRAGATI Design System — National Infrastructure Control Room
    Predictive Infrastructure Intelligence & Decision-Support
    ============================================================ */
 
 :root {
-  /* --- Primary Palette: Sky Blue / Cyan --- */
+  /* --- Primary Palette: Royal Navy & Sky Blue --- */
   --color-primary: #0ea5e9;
   --color-primary-dark: #0284c7;
   --color-primary-light: #e0f2fe;
@@ -24,51 +24,51 @@
   --color-secondary-dark: #0891b2;
   --color-secondary-light: #cffafe;
 
-  /* --- Royal Blue: Headers, Nav --- */
-  --color-royal: #1e3a5f;
-  --color-royal-light: #2d5a8e;
-  --color-royal-dark: #152a45;
+  /* --- Royal Blue: Headers, Nav, Command Console --- */
+  --color-royal: #0f233a;
+  --color-royal-light: #1e3a5f;
+  --color-royal-dark: #091626;
 
   /* --- Accent: Golden / Orange --- */
   --color-accent: #f59e0b;
   --color-accent-dark: #d97706;
   --color-accent-light: #fef3c7;
 
-  /* --- Semantic --- */
-  --color-success: #10b981;
+  /* --- Semantic Restrained Status --- */
+  --color-success: #059669;
   --color-success-light: #ecfdf5;
-  --color-warning: #f59e0b;
+  --color-warning: #d97706;
   --color-warning-light: #fffbeb;
-  --color-danger: #ef4444;
-  --color-danger-dark: #dc2626;
+  --color-danger: #dc2626;
+  --color-danger-dark: #b91c1c;
   --color-danger-light: #fef2f2;
 
-  /* --- Neutrals --- */
-  --color-neutral-50: #fafafa;
-  --color-neutral-100: #f5f5f5;
-  --color-neutral-200: #e5e5e5;
-  --color-neutral-300: #d4d4d4;
-  --color-neutral-400: #a3a3a3;
-  --color-neutral-500: #737373;
-  --color-neutral-600: #525252;
-  --color-neutral-700: #404040;
-  --color-neutral-800: #262626;
-  --color-neutral-900: #171717;
+  /* --- Neutrals & Slate Atmosphere --- */
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-300: #cbd5e1;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-500: #64748b;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1e293b;
+  --color-neutral-900: #0f172a;
 
   /* --- Background / Foreground --- */
-  --background: #ffffff;
-  --foreground: #171717;
-  --background-subtle: #f8fafc;
-  --background-muted: #f1f5f9;
-  --border-default: #e2e8f0;
-  --border-subtle: #f1f5f9;
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --background-subtle: #f1f5f9;
+  --background-muted: #e2e8f0;
+  --border-default: #cbd5e1;
+  --border-subtle: #e2e8f0;
 
-  /* --- Shadows --- */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  /* --- 3D Depth Shadows --- */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 4px 12px -2px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.1), 0 4px 8px -2px rgba(15, 23, 42, 0.05);
+  --shadow-card: inset 0 1px 0 0 rgba(255, 255, 255, 0.9), 0 1px 3px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+  --shadow-card-hover: inset 0 1px 0 0 rgba(255, 255, 255, 1), 0 8px 20px -4px rgba(15, 23, 42, 0.12), 0 4px 8px -2px rgba(15, 23, 42, 0.06);
 
   /* --- Border Radius --- */
   --radius-sm: 0.375rem;
@@ -98,7 +98,7 @@
 /* --- Base Styles --- */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem; /* Fixes fixed header overlap on anchor links */
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -109,7 +109,112 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Scrollbar Styling --- */
+/* --- Atmospheric Layered Background (Level 1) --- */
+.infra-bg-atmosphere {
+  background-color: #f4f7fa;
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(14, 165, 233, 0.04) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(15, 35, 58, 0.05) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, rgba(14, 165, 233, 0.03) 0px, transparent 50%),
+    linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+}
+
+/* Faint engineering grid pattern overlay */
+.infra-grid-pattern {
+  background-image: radial-gradient(rgba(15, 35, 58, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* Faint topographic contour line styling */
+.infra-contour-bg {
+  background-image: repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 40px, rgba(14, 165, 233, 0.02) 40px, rgba(14, 165, 233, 0.02) 41px);
+}
+
+/* --- Precision Surface Layers --- */
+
+/* Surface Level 2: Shell Containers (Sidebar / Topbar) */
+.surface-level-2 {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(203, 213, 225, 0.8);
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.04);
+}
+
+/* Surface Level 3: Precision Analytical Panel / Card */
+.surface-level-3 {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+    0 1px 3px 0 rgba(15, 23, 42, 0.05),
+    0 4px 12px -2px rgba(15, 23, 42, 0.04);
+  transition: all var(--transition-normal);
+}
+
+.surface-level-3:hover {
+  border-color: rgba(203, 213, 225, 1);
+  box-shadow: 
+    inset 0 1px 0 0 rgba(255, 255, 255, 1),
+    0 4px 8px -1px rgba(15, 23, 42, 0.06),
+    0 10px 24px -4px rgba(15, 23, 42, 0.08);
+}
+
+/* Surface Level 4: Recessed Data Container */
+.surface-level-4 {
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: inset 0 1px 3px 0 rgba(15, 23, 42, 0.03);
+}
+
+/* Corner Reticle Accents for Engineering Panels */
+.reticle-corner {
+  position: relative;
+}
+
+.reticle-corner::before,
+.reticle-corner::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-color: rgba(148, 163, 184, 0.4);
+  pointer-events: none;
+}
+
+.reticle-corner::before {
+  top: 4px;
+  left: 4px;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+}
+
+.reticle-corner::after {
+  bottom: 4px;
+  right: 4px;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+}
+
+/* Controlled Pulse Animation for Critical Signals */
+@keyframes restrained-pulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    opacity: 0.85;
+    box-shadow: 0 0 0 4px rgba(220, 38, 38, 0);
+  }
+}
+
+.signal-pulse-critical {
+  animation: restrained-pulse 3s infinite ease-in-out;
+}
+
+/* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -128,14 +233,14 @@ body {
   background: var(--color-neutral-400);
 }
 
-/* --- Focus Styles --- */
+/* Focus Styles */
 *:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
 
-/* --- Selection --- */
+/* Selection */
 ::selection {
   background-color: var(--color-primary-200);
   color: var(--color-primary-700);

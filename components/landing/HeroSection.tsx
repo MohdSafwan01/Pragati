@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
+import PragatiLogo from '@/components/ui/PragatiLogo';
 
 // Dynamically import the 3D scene to avoid SSR issues with Three.js
 const InfrastructureScene = dynamic(
@@ -26,18 +27,17 @@ export default function HeroSection() {
               transition={{ duration: 0.6 }}
               className="text-xs font-bold text-sky-600 mb-6 tracking-[0.2em] uppercase"
             >
-              India's Infrastructure Intelligence
+              India&apos;s Infrastructure Intelligence
             </motion.div>
             
-            {/* Main Headline */}
+            {/* Official PRAGATI Logo */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="flex items-center gap-4 mb-4"
+              className="mb-6"
             >
-              <span className="text-6xl lg:text-7xl font-black text-slate-900 tracking-tight leading-none">प्रगति</span>
-              <ArrowRight className="h-10 w-10 text-sky-500" strokeWidth={3} />
+              <PragatiLogo variant="full" />
             </motion.div>
 
             <motion.h1 
@@ -58,7 +58,7 @@ export default function HeroSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-slate-600 mb-10 max-w-xl leading-relaxed font-medium"
             >
-              From data to foresight — identifying risks, enabling timely interventions, and accelerating India's progress.
+              From data to foresight — identifying risks, enabling timely interventions, and accelerating India&apos;s progress.
             </motion.p>
             
             {/* Action Buttons */}

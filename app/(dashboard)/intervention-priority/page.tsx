@@ -100,24 +100,24 @@ export default function InterventionPriorityPage() {
 
   return (
     <div className="space-y-6 pb-16">
-      {/* Header */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+      {/* Header Banner */}
+      <div className="surface-level-3 rounded-2xl p-6 relative overflow-hidden border border-slate-200/90 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="p-1 rounded bg-royal text-white">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="p-1.5 rounded-lg bg-royal text-sky-400 shadow-xs">
                 <Target className="w-5 h-5" />
               </span>
               <h1 className="text-2xl sm:text-3xl font-bold text-royal tracking-tight">
                 Intervention Priority Operational Queue
               </h1>
             </div>
-            <p className="text-sm text-neutral-600">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
               Multifactor intervention support ranking derived from Risk &times; Economic Impact &times; Anomaly Persistence &times; Grounding Evidence.
             </p>
           </div>
 
-          <span className="text-xs font-mono text-slate-500 bg-slate-100 px-3 py-1 rounded-full border shrink-0">
+          <span className="text-[11px] font-mono font-bold text-slate-600 bg-slate-100/90 px-3 py-1.5 rounded-lg border border-slate-200 shrink-0">
             DECISION-SUPPORT QUEUE
           </span>
         </div>
@@ -125,23 +125,23 @@ export default function InterventionPriorityPage() {
 
       {/* KPI Strip */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <Card className="p-4">
-          <span className="text-xs text-slate-500 font-semibold block uppercase">Intervention Queue</span>
+        <Card className="p-4 border-slate-200">
+          <span className="text-[10px] text-slate-500 font-bold block uppercase tracking-wider">Intervention Queue</span>
           <span className="text-2xl font-bold text-royal mt-1 block">{interventions.length} Projects</span>
           <span className="text-[11px] text-slate-400">Total queued assets</span>
         </Card>
-        <Card className="p-4 bg-red-50/40 border-red-200">
-          <span className="text-xs text-red-700 font-semibold block uppercase">Priority 1 (Critical)</span>
+        <Card className="p-4 bg-red-50/30 border-red-200/90">
+          <span className="text-[10px] text-red-700 font-bold block uppercase tracking-wider">Priority 1 (Critical)</span>
           <span className="text-2xl font-bold text-red-700 mt-1 block">{p1Count} Projects</span>
           <span className="text-[11px] text-red-600">Urgent review required</span>
         </Card>
-        <Card className="p-4 bg-amber-50/40 border-amber-200">
-          <span className="text-xs text-amber-700 font-semibold block uppercase">Priority 2 (High)</span>
+        <Card className="p-4 bg-amber-50/30 border-amber-200/90">
+          <span className="text-[10px] text-amber-700 font-bold block uppercase tracking-wider">Priority 2 (High)</span>
           <span className="text-2xl font-bold text-amber-800 mt-1 block">{p2Count} Projects</span>
           <span className="text-[11px] text-amber-700">Scheduled cycle review</span>
         </Card>
-        <Card className="p-4 bg-red-50/40 border-red-200">
-          <span className="text-xs text-red-700 font-semibold block uppercase">Immediate Review</span>
+        <Card className="p-4 bg-red-50/30 border-red-200/90">
+          <span className="text-[10px] text-red-700 font-bold block uppercase tracking-wider">Immediate Review</span>
           <span className="text-2xl font-bold text-red-800 mt-1 block">{immediateReviewCount} Assets</span>
           <span className="text-[11px] text-red-600">Site inspection queued</span>
         </Card>

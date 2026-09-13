@@ -34,7 +34,7 @@ export default function ImpactAreasSection() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section id="impact-section" className="py-24 bg-white scroll-mt-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-12 items-start justify-between mb-16">
           <div className="max-w-xl">
@@ -48,7 +48,7 @@ export default function ImpactAreasSection() {
           
           {/* Quote Block */}
           <div className="bg-slate-50 border border-slate-100 p-6 rounded-2xl max-w-md relative">
-            <div className="absolute -top-4 -left-2 text-6xl text-slate-200 font-serif leading-none">"</div>
+            <div className="absolute -top-4 -left-2 text-6xl text-slate-200 font-serif leading-none">&quot;</div>
             <p className="text-lg text-slate-700 italic relative z-10 font-medium">
               Proactive governance today, a developed India tomorrow.
             </p>

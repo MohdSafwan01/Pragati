@@ -1,10 +1,10 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 import Link from 'next/link';
 
 export default function DarkIntelligenceSection() {
   return (
-    <section className="bg-slate-950 py-24 text-white overflow-hidden relative">
+    <section id="live-map-section" className="bg-slate-950 py-24 text-white overflow-hidden relative scroll-mt-24">
       {/* Decorative gradient orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900/20 rounded-full blur-[120px] pointer-events-none"></div>
       
@@ -16,14 +16,18 @@ export default function DarkIntelligenceSection() {
               Explore the Intelligence
             </div>
             <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              See India's Infrastructure Like Never Before
+              See India&apos;s Infrastructure Like Never Before
             </h2>
             <p className="text-slate-400 text-lg mb-8 max-w-md">
               An interactive view of projects, risks, and opportunities across every state and sector.
             </p>
-            <Link href="#projects" className="inline-flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 text-sm font-medium text-white transition-all backdrop-blur-sm">
+            <Link 
+              href="/map" 
+              className="inline-flex items-center justify-center gap-2.5 rounded-full bg-sky-500 hover:bg-sky-400 text-white font-semibold px-7 py-3.5 text-sm shadow-lg shadow-sky-500/25 transition-all group"
+            >
+              <MapPin className="h-4 w-4" />
               Open Live Map
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
           </div>
           

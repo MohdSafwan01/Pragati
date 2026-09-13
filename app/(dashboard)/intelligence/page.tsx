@@ -182,18 +182,18 @@ function IntelligenceChatContent() {
   return (
     <div className="space-y-6 pb-16">
       {/* Workspace Header */}
-      <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-6">
+      <div className="surface-level-3 rounded-2xl p-6 relative overflow-hidden border border-slate-200/90 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <span className="p-1 rounded bg-royal text-white">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="p-1.5 rounded-lg bg-royal text-sky-400 shadow-xs">
                 <BrainCircuit className="w-5 h-5" />
               </span>
               <h1 className="text-2xl sm:text-3xl font-bold text-royal tracking-tight">
                 PRAGATI Intelligence Console
               </h1>
             </div>
-            <p className="text-sm text-neutral-600">
+            <p className="text-xs sm:text-sm text-slate-600 max-w-2xl leading-relaxed">
               Evidence-grounded conversational analyst. Ask questions, analyze SHAP predictive signals, verify field evidence, and review official intervention recommendations.
             </p>
           </div>

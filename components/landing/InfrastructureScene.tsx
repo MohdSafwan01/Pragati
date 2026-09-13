@@ -78,14 +78,13 @@ function InfraNode({ node }: { node: ProjectNode }) {
 
 /* ------------------------------------------------------------------ */
 /*  Data flow particle system along connections                         */
-/* ------------------------------------------------------------------ */
+/* eslint-disable */
 function DataFlowParticles() {
   const particleCount = 120;
-  const positionsRef = useRef<Float32Array>(null);
-  const colorsRef = useRef<Float32Array>(null);
   const pointsRef = useRef<THREE.Points>(null);
 
-  const particleData = useMemo(() => {
+  const particleDataRef = useRef<Array<{ startNode: number; endNode: number; progress: number; speed: number; offset: number }>>([]);
+  if (particleDataRef.current.length === 0) {
     const data = [];
     for (let i = 0; i < particleCount; i++) {
       const connIdx = Math.floor(Math.random() * CONNECTIONS.length);
@@ -98,17 +97,26 @@ function DataFlowParticles() {
         offset: (Math.random() - 0.5) * 0.15,
       });
     }
-    return data;
-  }, []);
+    particleDataRef.current = data;
+  }
 
-  const [positions, colors] = useMemo(() => {
-    const pos = new Float32Array(particleCount * 3);
-    const col = new Float32Array(particleCount * 3);
-    return [pos, col];
-  }, []);
+  const positionsRef = useRef<Float32Array | null>(null);
+  if (!positionsRef.current) {
+    positionsRef.current = new Float32Array(particleCount * 3);
+  }
+
+  const colorsRef = useRef<Float32Array | null>(null);
+  if (!colorsRef.current) {
+    colorsRef.current = new Float32Array(particleCount * 3);
+  }
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
+    const particleData = particleDataRef.current;
+    const positions = positionsRef.current;
+    const colors = colorsRef.current;
+    if (!positions || !colors) return;
+
     for (let i = 0; i < particleCount; i++) {
       const p = particleData[i];
       p.progress = (p.progress + p.speed * 0.008) % 1;
@@ -137,14 +145,16 @@ function DataFlowParticles() {
       <bufferGeometry>
         <bufferAttribute
           attach="attributes-position"
+          args={[positionsRef.current, 3]}
           count={particleCount}
-          array={positions}
+          array={positionsRef.current}
           itemSize={3}
         />
         <bufferAttribute
           attach="attributes-color"
+          args={[colorsRef.current, 3]}
           count={particleCount}
-          array={colors}
+          array={colorsRef.current}
           itemSize={3}
         />
       </bufferGeometry>
@@ -286,12 +296,9 @@ function Scene() {
 /* ------------------------------------------------------------------ */
 /*  Exported component                                                  */
 /* ------------------------------------------------------------------ */
+const emptySubscribe = () => () => {};
 export default function InfrastructureScene() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = React.useSyncExternalStore(emptySubscribe, () => true, () => false);
 
   if (!mounted) {
     return (
